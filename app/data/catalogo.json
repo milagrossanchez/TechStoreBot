@@ -1,0 +1,150 @@
+[
+  {
+    "id": "AUD-001",
+    "categoria": "Audífonos",
+    "nombre": "SoundWave Pro X1",
+    "tipo": "In-ear con cancelación de ruido",
+    "precio": 249.90,
+    "moneda": "PEN",
+    "stock": 34,
+    "caracteristicas": [
+      "Cancelación activa de ruido (ANC) híbrida",
+      "Batería: 8h + 24h con estuche",
+      "Bluetooth 5.3, baja latencia para gaming",
+      "Resistencia al agua IPX5",
+      "Carga rápida: 10 min = 2h de uso"
+    ],
+    "colores": ["Negro", "Blanco perla", "Azul medianoche"],
+    "novedad": true,
+    "etiquetas": ["gamer", "viaje", "deporte", "cancelacion de ruido", "inalambrico"]
+  },
+  {
+    "id": "AUD-002",
+    "categoria": "Audífonos",
+    "nombre": "EchoFit Sport",
+    "tipo": "In-ear deportivo",
+    "precio": 129.90,
+    "moneda": "PEN",
+    "stock": 58,
+    "caracteristicas": [
+      "Ganchos ergonómicos antideslizamiento",
+      "Resistencia al sudor y lluvia IPX7",
+      "Batería: 10h continuas",
+      "Ecualizador deportivo con graves reforzados"
+    ],
+    "colores": ["Negro", "Verde lima"],
+    "novedad": false,
+    "etiquetas": ["deporte", "running", "economico", "resistente al agua"]
+  },
+  {
+    "id": "RLJ-001",
+    "categoria": "Relojes inteligentes",
+    "nombre": "PulseFit Watch 5",
+    "tipo": "Smartwatch fitness",
+    "precio": 399.00,
+    "moneda": "PEN",
+    "stock": 21,
+    "caracteristicas": [
+      "Monitor de ritmo cardiaco y oxígeno en sangre (SpO2)",
+      "GPS integrado",
+      "Pantalla AMOLED 1.43'' siempre activa",
+      "Batería hasta 12 días",
+      "Más de 100 modos deportivos",
+      "Resistencia al agua 5ATM"
+    ],
+    "colores": ["Negro", "Plateado", "Rosa"],
+    "novedad": true,
+    "etiquetas": ["fitness", "salud", "gps", "novedoso", "deporte"]
+  },
+  {
+    "id": "RLJ-002",
+    "categoria": "Relojes inteligentes",
+    "nombre": "UrbanTech Watch S",
+    "tipo": "Smartwatch lifestyle",
+    "precio": 279.90,
+    "moneda": "PEN",
+    "stock": 40,
+    "caracteristicas": [
+      "Notificaciones de llamadas y apps",
+      "Control de música y cámara",
+      "Batería hasta 7 días",
+      "Correa intercambiable",
+      "Compatible con Android e iOS"
+    ],
+    "colores": ["Negro", "Café cuero", "Blanco"],
+    "novedad": false,
+    "etiquetas": ["oficina", "casual", "notificaciones", "economico"]
+  },
+  {
+    "id": "CRG-001",
+    "categoria": "Cargadores",
+    "nombre": "PowerLink GaN 65W",
+    "tipo": "Cargador rápido de pared",
+    "precio": 89.90,
+    "moneda": "PEN",
+    "stock": 76,
+    "caracteristicas": [
+      "Tecnología GaN (tamaño reducido, mayor eficiencia)",
+      "2 puertos USB-C PD + 1 USB-A",
+      "Carga simultánea de hasta 3 dispositivos",
+      "Compatible con laptops, celulares y tablets"
+    ],
+    "colores": ["Blanco", "Negro"],
+    "novedad": true,
+    "etiquetas": ["carga rapida", "viaje", "novedoso", "multipuerto"]
+  },
+  {
+    "id": "CRG-002",
+    "categoria": "Cargadores",
+    "nombre": "MagSnap Wireless Pad",
+    "tipo": "Cargador inalámbrico magnético",
+    "precio": 69.90,
+    "moneda": "PEN",
+    "stock": 50,
+    "caracteristicas": [
+      "Carga inalámbrica magnética 15W",
+      "Compatible con sistemas de anclaje magnético",
+      "Base antideslizante",
+      "Indicador LED de carga"
+    ],
+    "colores": ["Negro", "Blanco"],
+    "novedad": false,
+    "etiquetas": ["inalambrico", "escritorio", "economico"]
+  },
+  {
+    "id": "ACC-001",
+    "categoria": "Accesorios novedosos",
+    "nombre": "AirTrack Tag",
+    "tipo": "Localizador Bluetooth inteligente",
+    "precio": 59.90,
+    "moneda": "PEN",
+    "stock": 90,
+    "caracteristicas": [
+      "Localización en tiempo real vía app",
+      "Alcance Bluetooth hasta 120m",
+      "Batería reemplazable, duración 1 año",
+      "Alarma sonora y notificación de objeto olvidado"
+    ],
+    "colores": ["Blanco", "Negro"],
+    "novedad": true,
+    "etiquetas": ["novedoso", "viaje", "seguridad", "antipérdida"]
+  },
+  {
+    "id": "ACC-002",
+    "categoria": "Accesorios novedosos",
+    "nombre": "GlowRing LED Selfie",
+    "tipo": "Aro de luz portátil para celular",
+    "precio": 45.90,
+    "moneda": "PEN",
+    "stock": 65,
+    "caracteristicas": [
+      "3 tonos de luz regulables",
+      "Clip universal para smartphones",
+      "Batería recargable USB-C",
+      "Ideal para videollamadas y contenido"
+    ],
+    "colores": ["Negro"],
+    "novedad": true,
+    "etiquetas": ["contenido", "novedoso", "economico", "streaming"]
+  }
+]

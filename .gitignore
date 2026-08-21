@@ -1,0 +1,20 @@
+# Credenciales y configuración local
+.env
+
+# Entorno virtual
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Base de datos local (se genera en tiempo de ejecución)
+app/data/pedidos.db
+
+# Editor / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
