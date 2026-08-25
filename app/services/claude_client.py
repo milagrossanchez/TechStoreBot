@@ -1,14 +1,14 @@
 """Orquestación del LLM: arma el contexto (RAG) y llama a la API de Claude."""
-import os
 import json
 
 from anthropic import Anthropic
 
+from app.config import ANTHROPIC_API_KEY, CLAUDE_MODEL
 from app.services.catalogo import cargar_catalogo, buscar_productos, formatear_contexto
 from app.services.db import crear_pedido
 
-MODEL = os.getenv("CLAUDE_MODEL", "claude-sonnet-5")
-client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+MODEL = CLAUDE_MODEL
+client = Anthropic(api_key=ANTHROPIC_API_KEY)
 
 SYSTEM_PROMPT = """Eres el asistente de ventas de "TechStore", una tienda de productos tecnológicos
 (audífonos, relojes inteligentes, cargadores y accesorios novedosos).
@@ -21,6 +21,9 @@ Tu objetivo:
 4. Si el cliente decide comprar, usa la herramienta `registrar_pedido` para dejar el pedido guardado.
 5. Si no encuentras algo relevante en el contexto, dilo con honestidad y ofrece alternativas cercanas.
 6. No respondas preguntas fuera del dominio de la tienda; redirige amablemente a productos tecnológicos.
+
+Formato: tus respuestas se envían a Telegram con Markdown clásico. Para negrita usa UN SOLO asterisco
+(*así*), nunca doble asterisco (**así**). No uses encabezados (#) ni tablas.
 """
 
 TOOLS = [

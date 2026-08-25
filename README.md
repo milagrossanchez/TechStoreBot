@@ -19,8 +19,33 @@ Telegram Bot API  ──►  app/bot.py (python-telegram-bot)
               ┌───────────────┼───────────────┐
               ▼                               ▼
    app/services/catalogo.py         app/services/db.py
-   (catalogo.json - fuente          (SQLite: mensajes y pedidos)
-    de productos)
+   (catalogo.json - fuente          (SQLite: mensajes y pedidos,
+    de productos)                    usando app/models.py)
+```
+
+## Estructura del proyecto
+
+```
+TechStoreBot/
+├── app/
+│   ├── bot.py                  # Punto de entrada: handlers de Telegram
+│   ├── config.py               # Configuración centralizada (variables de entorno)
+│   ├── models.py               # Modelos de datos (SQLAlchemy: Mensaje, Pedido)
+│   ├── data/
+│   │   └── catalogo.json       # Catálogo de productos (fuente del RAG)
+│   └── services/
+│       ├── catalogo.py         # Lógica: carga y búsqueda (retriever) del catálogo
+│       ├── claude_client.py    # Lógica: orquestación del LLM (RAG + tool use)
+│       └── db.py                # Lógica: acceso a la base de datos (repositorio)
+├── tests/
+│   ├── conftest.py             # Fixtures: BD SQLite temporal para pruebas
+│   ├── test_catalogo.py        # Pruebas del retriever
+│   ├── test_db.py              # Pruebas de persistencia
+│   └── test_claude_client.py   # Pruebas de la tool registrar_pedido
+├── .env.example                 # Plantilla de variables de entorno
+├── requirements.txt             # Dependencias de producción
+├── requirements-dev.txt         # Dependencias de desarrollo (pytest)
+└── README.md
 ```
 
 ## Requisitos
@@ -55,6 +80,26 @@ Luego abre tu bot en Telegram y envía `/start`.
 3. "¿Tienen algo novedoso para no perder mis cosas?" → recomienda AirTrack Tag.
 4. "Quiero comprar el PulseFit Watch 5" → el bot confirma y registra el pedido (usa la
    herramienta `registrar_pedido`, que queda guardado en `app/data/pedidos.db`).
+
+## Pruebas
+
+```bash
+pip install -r requirements-dev.txt
+pytest -v
+```
+
+Las pruebas usan una base de datos SQLite temporal (no tocan `app/data/pedidos.db`) y no llaman a la
+API de Claude: cubren el retriever del catálogo (`app/services/catalogo.py`), la persistencia
+(`app/services/db.py`) y la lógica de la tool `registrar_pedido`.
+
+## Capturas
+
+| Bienvenida | Recomendación según necesidad | Registro de pedido |
+|---|---|---|
+| ![Mensaje de bienvenida del bot](assets/capturas/bienvenida.png) | ![Recomendación de audífonos deportivos](assets/capturas/recomendacion-deporte.png) | ![Confirmación de pedido registrado](assets/capturas/pedido-confirmado.png) |
+
+El bot pregunta color y cantidad antes de confirmar, valida el producto contra el catálogo real y calcula el
+total — flujo completo: recomendación → aclaración de color/cantidad → pedido registrado con ID.
 
 ## Alcance (qué SÍ y qué NO hace)
 

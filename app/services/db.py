@@ -1,38 +1,12 @@
-"""Persistencia de conversaciones y pedidos (componente de almacenamiento)."""
-import os
-from datetime import datetime, timezone
+"""Persistencia de conversaciones y pedidos (acceso a la base de datos)."""
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
-from sqlalchemy import create_engine, Column, Integer, String, Float, DateTime, Text
-from sqlalchemy.orm import declarative_base, sessionmaker
-
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./app/data/pedidos.db")
+from app.config import DATABASE_URL
+from app.models import Base, Mensaje, Pedido
 
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False} if "sqlite" in DATABASE_URL else {})
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
-Base = declarative_base()
-
-
-class Mensaje(Base):
-    __tablename__ = "mensajes"
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    chat_id = Column(String, index=True, nullable=False)
-    rol = Column(String, nullable=False)  # "user" | "assistant"
-    contenido = Column(Text, nullable=False)
-    creado_en = Column(DateTime, default=lambda: datetime.now(timezone.utc))
-
-
-class Pedido(Base):
-    __tablename__ = "pedidos"
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    chat_id = Column(String, index=True, nullable=False)
-    producto_id = Column(String, nullable=False)
-    producto_nombre = Column(String, nullable=False)
-    precio = Column(Float, nullable=False)
-    cantidad = Column(Integer, default=1)
-    estado = Column(String, default="pendiente")  # pendiente | confirmado | cancelado
-    creado_en = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
 
 def init_db():
