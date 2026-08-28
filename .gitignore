@@ -18,6 +18,3 @@ app/data/pedidos.db
 .idea/
 Thumbs.db
 .DS_Store
-
-# Documentos personales (presentaciones, etc.) - no se suben al repo
-docs/
